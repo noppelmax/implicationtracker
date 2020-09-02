@@ -1,0 +1,9 @@
+test-output/
+*.pyc
+*.bak
+*.swp
+*.tmp
+
+*.tex
+*.npy
+

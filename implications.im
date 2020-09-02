@@ -1,0 +1,215 @@
+
+# S-OPA Family
+CU-OPA			=> H-OPA
+CU-OPA 			=> UorH-OPA
+CU-OPA			=> U-OPA
+UorH-OPA 		=> H-OPA
+UorH-OPA		=> U-OPA
+UorH-OPA		=> UorP-OPA
+H-OPA 			=> P-OPA 
+H-OPA 			=> UandH-OPA
+H-OPA 			=> Q-OPA
+UorP-OPA 		=> UandH-OPA
+UorP-OPA		=> P-OPA
+UorP-OPA		=> U-OPA
+UorP-OPA		=> QorP-OPA
+U-OPA 			=> UandH-OPA
+U-OPA 			=> Q-OPA
+U-OPA 			=> UandP-OPA
+P-OPA 			=> QandP-OPA
+P-OPA 			=> UandP-OPA
+QorP-OPA		=> P-OPA
+QorP-OPA		=> Q-OPA
+UandH-OPA		=> QandP-OPA
+QorP-OPA		=> UandP-OPA
+Q-OPA 			=> QandP-OPA
+UandP-OPA       => QandP-OPA
+
+
+# nDESS-OPA Family
+nDandES-OPA					=> nDandESandCU-OPA
+nDandESandCU-OPA			=> nDandESandH-OPA
+nDandESandCU-OPA 			=> nDandESandUorH-OPA
+nDandESandCU-OPA			=> nDandESandU-OPA
+nDandESandUorH-OPA 			=> nDandESandH-OPA
+nDandESandUorH-OPA			=> nDandESandU-OPA
+nDandESandUorH-OPA			=> nDandESandUorP-OPA
+nDandESandH-OPA 			=> nDandESandP-OPA 
+nDandESandH-OPA 			=> nDandESandUandH-OPA
+nDandESandH-OPA 			=> nDandESandQ-OPA
+nDandESandUorP-OPA 			=> nDandESandUandH-OPA
+nDandESandUorP-OPA			=> nDandESandP-OPA
+nDandESandUorP-OPA			=> nDandESandU-OPA
+nDandESandUorP-OPA			=> nDandESandQorP-OPA
+nDandESandU-OPA 			=> nDandESandUandH-OPA
+nDandESandU-OPA 			=> nDandESandQ-OPA
+nDandESandU-OPA 			=> nDandESandUandP-OPA
+nDandESandP-OPA 			=> nDandESandQandP-OPA
+nDandESandP-OPA 			=> nDandESandUandP-OPA
+nDandESandQorP-OPA			=> nDandESandP-OPA
+nDandESandQorP-OPA			=> nDandESandQ-OPA
+nDandESandUandH-OPA			=> nDandESandQandP-OPA
+nDandESandQorP-OPA		 	=> nDandESandUandP-OPA
+nDandESandQ-OPA 			=> nDandESandQandP-OPA
+nDandESandUandP-OPA       	=> nDandESandQandP-OPA
+
+
+nDandESandCU-OPA			=|=> achievedInGeneral
+nDandESandUorH-OPA 			=|=> achievedInGeneral
+nDandESandH-OPA 			=|=> achievedInGeneral
+nDandESandUorP-OPA 			=|=> achievedInGeneral
+nDandESandU-OPA 			=|=> achievedInGeneral
+nDandESandP-OPA 			=|=> achievedInGeneral
+nDandESandQorP-OPA			=|=> achievedInGeneral
+nDandESandUandH-OPA			=|=> achievedInGeneral
+nDandESandQandP-OPA		 	=|=> achievedInGeneral
+nDandESandQ-OPA 			=|=> achievedInGeneral
+nDandESandUandP-OPA       	=|=> achievedInGeneral
+
+
+# S-OCA Family
+CU-OCA			<=> achievedInGeneral
+UorH-OCA 		<=> achievedInGeneral
+H-OCA 			<=> achievedInGeneral
+UorP-OCA 		<=> achievedInGeneral
+U-OCA 			<=> achievedInGeneral
+P-OCA 			<=> achievedInGeneral
+QorP-OCA		<=> achievedInGeneral
+QandP-OCA		<=> achievedInGeneral
+UandH-OCA		<=> achievedInGeneral
+Q-OCA 			<=> achievedInGeneral
+UandP-OCA       <=> achievedInGeneral
+
+
+# nDESS-OCA Family
+nDandES-OCA		 			<=> achievedInGeneral
+nDandESandCU-OCA		 	<=> achievedInGeneral
+nDandESandUorH-OCA 		 	<=> achievedInGeneral
+nDandESandH-OCA 		 	<=> achievedInGeneral
+nDandESandUorP-OCA 		 	<=> achievedInGeneral
+nDandESandU-OCA 		 	<=> achievedInGeneral
+nDandESandP-OCA 		 	<=> achievedInGeneral
+nDandESandQorP-OCA		 	<=> achievedInGeneral
+nDandESandUandH-OCA		 	<=> achievedInGeneral
+nDandESandQandP-OCA		 	<=> achievedInGeneral
+nDandESandQ-OCA 		 	<=> achievedInGeneral
+nDandESandUandP-OCA      	<=> achievedInGeneral
+
+
+
+# nS-OPA Family
+nQornP-OPA			<=> N-OPA
+nP-OPA 				<=> N-OPA
+nQ-OPA				<=> N-OPA
+nUornP-OPA			<=> N-OPA
+nQandnP-OPA			<=> N-OPA
+nUornH-OPA			<=> N-OPA
+nU-OPA				<=> N-OPA
+nH-OPA				<=> N-OPA
+nUandnP-OPA			<=> N-OPA
+nUandnH-OPA			<=> N-OPA
+nCU-OPA				<=> N-OPA
+
+
+# nDESnS-OPA Family
+nDandES-OPA 			<=> nDandESandnQornP-OPA
+nDandES-OPA 			<=> nDandESandnUornP-OPA
+nDandES-OPA 			<=> nDandESandnQ-OPA
+nDandES-OPA 			<=> nDandESandnU-OPA
+nDandES-OPA 			<=> nDandESandnUornH-OPA
+nDandESandnUornP-OPA 				=> nDandESandnQandnP-OPA
+nDandESandnUornP-OPA 				=> nDandESandnP-OPA
+nDandESandnQornP-OPA 				=> nDandESandnP-OPA
+nDandESandnP-OPA 					=> nDandESandnQandnP-OPA
+nDandESandnP-OPA 					=> nDandESandnH-OPA
+nDandESandnH-OPA 					=> nDandESandnCU-OPA
+nDandESandnH-OPA 					=> nDandESandnUandnH-OPA
+nDandESandnP-OPA 					=> nDandESandnUandnP-OPA
+nDandESandnU-OPA 					=> nDandESandnCU-OPA
+nDandESandnU-OPA 					=> nDandESandnUandnP-OPA
+nDandESandnU-OPA 					=> nDandESandnUandnH-OPA
+nDandESandnQ-OPA 					=> nDandESandnQandnP-OPA
+nDandESandnQ-OPA 					=> nDandESandnH-OPA
+nDandESandnUornH-OPA 				=> nDandESandnH-OPA
+
+
+# nS-OCA Family
+nCU-OCA				=> nH-OCA
+nCU-OCA 			=> nUandnH-OCA
+nCU-OCA				=> nU-OCA
+nUandnH-OCA 		=> nH-OCA
+nUandnH-OCA			=> nU-OCA
+nUandnH-OCA			=> nUandnP-OCA
+nH-OCA 				=> nP-OCA 
+nH-OCA 				=> nUornH-OCA
+nH-OCA 				=> nQ-OCA
+nUandnP-OCA 		=> nUornH-OCA
+nUandnP-OCA			=> nP-OCA
+nUandnP-OCA			=> nU-OCA
+nUandnP-OCA			=> nQandnP-OCA
+nU-OCA 				=> nUornH-OCA
+nU-OCA 				=> nQ-OCA
+nU-OCA 				=> nUornP-OCA
+nP-OCA 				=> nQornP-OCA
+nP-OCA 				=> nUornP-OCA
+nQandnP-OCA			=> nP-OCA
+nQandnP-OCA			=> nQ-OCA
+nUornH-OCA			=> nQornP-OCA
+nQandnP-OCA			=> nUornP-OCA
+nQ-OCA 				=> nQornP-OCA
+nUornP-OCA        	=> nQornP-OCA
+
+
+
+
+# nDESnS-OCA Family
+nDandESandnUornP-OCA 				<=> unachievable
+nDandESandnQornP-OCA 				<=> unachievable
+nDandESandnCU-OCA 					<=> unachievable
+nDandESandnP-OCA 					<=> unachievable
+nDandESandnH-OCA 					<=> unachievable
+nDandESandnP-OCA 					<=> unachievable
+nDandESandnU-OCA 					<=> unachievable
+nDandESandnQ-OCA 					<=> unachievable
+nDandESandnUornH-OCA 				<=> unachievable
+nDandESandnUandnP-OCA 				<=> unachievable
+nDandESandnQandnP-OCA 				<=> unachievable
+nDandESandnUandnH-OCA 				<=> unachievable
+nDandES-OCA  						<=> achievedInGeneral
+nDandES-OCA 						<=> nDandES-OCA2
+nDandES-OPA 						<=> nDandES-OPA2
+
+# Comparing the families
+CU-OPA 							=|=> nDandES-OPA
+CU-OPA 							=|=> nDandESandnCU-OPA
+nDandESandnP-OPA 				=|=> QandP-OPA
+CU-OPA 							=|=> nQornP-OCA
+nCU-OCA 						=|=> QandP-OPA
+nDandES-OPA						=|=> nQornP-OCA
+nCU-OCA 						=|=> nDandESandQandP-OPA
+nCU-OCA 						=|=> nDandESandnCU-OPA
+nDandES-OPA 					=|=> QandP-OPA
+nDandESandCU-OPA 				=|=> nDandESandnCU-OPA
+nDandESandnP-OPA 				=|=> nDandESandQandP-OPA
+
+
+CU-OPA			=> nDandESandCU-OPA	
+UorH-OPA 		=> nDandESandUorH-OPA 
+H-OPA 			=> nDandESandH-OPA 	
+UorP-OPA 		=> nDandESandUorP-OPA 
+U-OPA 			=> nDandESandU-OPA 	
+P-OPA 			=> nDandESandP-OPA 	
+QorP-OPA		=> nDandESandQorP-OPA
+UandH-OPA		=> nDandESandUandH-OPA
+QandP-OPA		=> nDandESandQandP-OPA
+Q-OPA 			=> nDandESandQ-OPA 	
+UandP-OPA       => nDandESandUandP-OPA
+
+
+
+
+
+achievedInGeneral => N-OPA
+
+# In Appendix
+nCU-OCA  =|=> N-OPA
