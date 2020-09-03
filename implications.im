@@ -224,7 +224,8 @@ achievedInGeneral => N-OPA
 
 
 
-# Section Image Opaqueness
+# Section IMAGE OPAQUENESS ON S
+wUA-OCA  			<=> wUUv0-OCA
 wUA-OCA	 			=|=> unachievable
 CU-OPA 				=|=> wUA-OCA
 nDandES-OPA 		=> wUA-OCA
@@ -297,6 +298,96 @@ wUA-OCA		=|=> nDandESandnUandnH-OPA
 wUA-OCA		=|=> nDandESandnQandnP-OPA
 wUA-OCA		=|=> nDandESandnUandnP-OPA
 
+# Section IMAGE OPAQUENESS ON SR
+wUA-OCA     			=> wLSRAA-OCA
+# not shown:
+#wLSRAA-OCA 			=|=> wUA-OCA
+CU-OPA 					=> wLSRAA-OCA
+U-OPA 					=> wLSRAA-OCA
+QandP-OPA 				=> wLSRAA-OCA
+nDandESandQandP-OPA 	=> wLSRAA-OCA
+nDandESandnP-OPA        =|=> wLSRAA-OCA
+nCU-OCA 				=|=> wLSRAA-OCA
+
+
+# Section ABSOLUTE VALUE OPAQUENESS ON S (version 1 )
+#LSCACIDrealv0-OCA		=> wLSCACIDrealv0-OCA
+#wLSCACIDrealv0-OCA     =|=> LSCACIDrealv0-OCA
+#LSCACIDrealv0-OCA 		=> UA-OCA
+CU-OPA 					=> LSCACIDrealv0-OCA
+H-OPA 					=> LSCACIDrealv0-OCA
+P-OPA 					=> LSCACIDrealv0-OCA
+U-OPA 					=|=> LSCACIDrealv0-OCA
+nDandES-OPA 			=> LSCACIDrealv0-OCA
+nDandESandP-OPA 		=> LSCACIDrealv0-OCA
+nDandESandU-OPA 		=|=> LSCACIDrealv0-OCA
+nDandESandnP-OPA 		=|=> LSCACIDrealv0-OCA
+nCU-OCA 				=|=> LSCACIDrealv0-OCA
+LSCACIDrealv0-OCA 		=|=> nQornP-OCA
+
+## and reasonable OPA notion
+LSCACIDrealv0-OCA		=|=> H-OPA
+LSCACIDrealv0-OCA		=|=> UorH-OPA
+LSCACIDrealv0-OCA		=|=> U-OPA
+LSCACIDrealv0-OCA		=|=> H-OPA
+LSCACIDrealv0-OCA		=|=> U-OPA
+LSCACIDrealv0-OCA		=|=> UorP-OPA
+LSCACIDrealv0-OCA		=|=> P-OPA 
+LSCACIDrealv0-OCA		=|=> UandH-OPA
+LSCACIDrealv0-OCA		=|=> Q-OPA
+LSCACIDrealv0-OCA		=|=> UandH-OPA
+LSCACIDrealv0-OCA		=|=> P-OPA
+LSCACIDrealv0-OCA		=|=> U-OPA
+LSCACIDrealv0-OCA		=|=> QorP-OPA
+LSCACIDrealv0-OCA		=|=> UandH-OPA
+LSCACIDrealv0-OCA		=|=> Q-OPA
+LSCACIDrealv0-OCA		=|=> UandP-OPA
+LSCACIDrealv0-OCA		=|=> QandP-OPA
+LSCACIDrealv0-OCA		=|=> UandP-OPA
+LSCACIDrealv0-OCA		=|=> P-OPA
+LSCACIDrealv0-OCA		=|=> Q-OPA
+LSCACIDrealv0-OCA		=|=> UandP-OPA
+LSCACIDrealv0-OCA		=|=> UandP-OPA
+LSCACIDrealv0-OCA		=|=> QandP-OPA
+LSCACIDrealv0-OCA     	=|=> QandP-OPA
+LSCACIDrealv0-OCA		=|=> Q-OPA
+LSCACIDrealv0-OCA		=|=> QorP-OPA
+
+LSCACIDrealv0-OCA		=|=> nDandESandCU-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandH-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandUorH-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandU-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandH-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandU-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandUorP-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandP-OPA 
+LSCACIDrealv0-OCA		=|=> nDandESandUandH-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandQ-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandUandH-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandP-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandU-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandQorP-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandUandH-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandQ-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandUandP-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandQandP-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandUandP-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandP-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandQ-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandUandP-OPA
+LSCACIDrealv0-OCA	 	=|=> nDandESandUandP-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandQandP-OPA
+LSCACIDrealv0-OCA     	=|=> nDandESandQandP-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandQ-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandQorP-OPA
+
+LSCACIDrealv0-OCA		=|=> nDandESandnCU-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandnH-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandnP-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandnUandnH-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandnQandnP-OPA
+LSCACIDrealv0-OCA		=|=> nDandESandnUandnP-OPA
+ 
 
 
 # In Appendix

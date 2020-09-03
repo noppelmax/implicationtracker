@@ -89,9 +89,9 @@ elif USE_OPAQUENESS:
 				"unachievable",
 				"N-OPA",
 				"wUA-OCA",
-				"wUV0-OCA",
+				"wUv0-OCA",
 				"UA-OCA",
-				"UV0-OCA",
+				"UUv0-OCA",
 				"wLSRAA-OCA",
 				"nUPhi-OCA",
 				"nUEmptyset-OCA",
@@ -106,7 +106,30 @@ else:
 		"achievedInGeneral": "achieved in general",
 		"unachievable": "unachievable",
 		"N-OPA": "\\N-OPA",
+		# img opa s
 		"wUA-OCA": "\\inactSender_A-OCA",
+		"wUUv0-OCA": "\\inactSender_{U_{v_0}}-OCA",
+
+		# comp img opa s
+		"UA-OCA": "\\actSender_A-OCA",
+		"UUv0-OCA": "\\actSender_{U_{v_0}}-OCA",
+
+		# special props
+		"nUPhi-OCA": "\\overline{U}^\\varphi-OCA",
+		"nUEmptyset-OCA": "\\overline{U}^\\emptyset-OCA",
+
+		# img opa sr
+		"wLSRAA-OCA": "\\inactSenderReceiver_{A \\times A}-OCA",
+
+		# comp img opa sr
+		"LSRAA-OCA": "\\inactSenderReceiver_{A \\times A}-OCA",
+
+		# abs val opa s
+		"LSCACIDrealv0-OCA": "\\senderOfCom_{A \\times CID^{real}_{v_0}}-OCA",
+
+		# comp abs val opa s
+		"wLSCACIDrealv0-OCA": "\\notSenderOfCom_{A \\times CID^{real}_{v_0}}-OCA",
+		
 
 		"CU-OPA": "|U|-OPA",
 		"UorH-OPA": "U \\lor H-OPA",
@@ -348,6 +371,9 @@ else:
 		"page": 8,
 		"notions": [
 			"wUA-OCA",
+			"wUUv0-OCA",
+			"wLSRAA-OCA",
+			"LSCACIDrealv0-OCA",
 			"achievedInGeneral",
 			"unachievable",
 			"N-OPA"
