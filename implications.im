@@ -142,7 +142,7 @@ nDandESandnUandnH-OPA 				=> nDandESandnCU-OPA
 nDandESandnQandnP-OPA 				=> nDandESandnH-OPA
 
 # To show!
-#nDandESandnCU-OPA 				=> nDandESandnP-OPA
+nDandESandnCU-OPA 				=> nDandESandnP-OPA
 
 
 # nS-OCA Family
@@ -368,3 +368,39 @@ H-OPA 				=|=> nDandESandUorP-OPA
 H-OPA 				=|=> nDandESandUorH-OPA
 UorP-OPA 			=|=> nDandESandH-OPA
 UorP-OPA 			=|=> nDandESandUorH-OPA
+
+
+nUandnH-OCA 		=|=> nCU-OCA
+nUandnP-OCA 		=|=> nUandnH-OCA
+nH-OCA 				=|=> nUandnH-OCA
+nU-OCA 				=|=> nUandnH-OCA
+nUornH-OCA 			=|=> nU-OCA
+nUornH-OCA 			=|=> nH-OCA
+nU-OCA 				=|=> nUandnP-OCA
+nQandnP-OCA 		=|=> nUandnP-OCA
+nQ-OCA 				=|=> nUornH-OCA
+nQ-OCA 				=|=> nQandnP-OCA
+nP-OCA 				=|=> nQandnP-OCA
+nQornP-OCA 			=|=> nUornP-OCA
+nUornP-OCA 			=|=> nP-OCA
+nUornP-OCA 			=|=> nQandnP-OCA
+nQandnP-OCA 		=|=> nH-OCA
+nUornP-OCA 			=|=> nUornH-OCA
+nP-OCA 				=|=> nUandnP-OCA
+nUornP-OCA 			=|=> nU-OCA
+nQornP-OCA 			=|=> nQ-OCA
+nUornH-OCA 			=|=> nP-OCA
+nUornP-OCA 			=|=> nQ-OCA
+nH-OCA 				=|=> nU-OCA
+nH-OCA 				=|=> nUandnP-OCA
+nQ-OCA 				=|=> nUornP-OCA
+nQ-OCA 				=|=> nP-OCA
+nP-OCA 				=|=> nUornH-OCA
+nP-OCA 				=|=> nQ-OCA
+nP-OCA 				=|=> nU-OCA
+nUornH-OCA 			=|=> nQandnP-OCA
+nU-OCA 				=|=> nH-OCA
+nU-OCA 				=|=> nP-OCA
+nU-OCA 				=|=> nQandnP-OCA
+nQandnP-OCA 		=|=> nUornH-OCA
+nUandnP-OCA 		=|=> nH-OCA
