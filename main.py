@@ -129,6 +129,9 @@ else:
 
 		# comp abs val opa s
 		"wLSCACIDrealv0-OCA": "\\notSenderOfCom_{A \\times CID^{real}_{v_0}}-OCA",
+
+		# abs val opa sr
+		"LSRCAACIDrealv0-OCA": "\\senderReceiverOfCom_{A \\times A \\times CID^{real}_{v_0}}-OCA",
 		
 
 		"CU-OPA": "|U|-OPA",
@@ -374,6 +377,7 @@ else:
 			"wUUv0-OCA",
 			"wLSRAA-OCA",
 			"LSCACIDrealv0-OCA",
+			"LSRCAACIDrealv0-OCA",
 			"achievedInGeneral",
 			"unachievable",
 			"N-OPA"
