@@ -116,11 +116,11 @@ nCU-OPA				<=> N-OPA
 
 
 # nDESnS-OPA Family
-nDandES-OPA 			<=> nDandESandnQornP-OPA
-nDandES-OPA 			<=> nDandESandnUornP-OPA
-nDandES-OPA 			<=> nDandESandnQ-OPA
-nDandES-OPA 			<=> nDandESandnU-OPA
-nDandES-OPA 			<=> nDandESandnUornH-OPA
+nDandES-OPA 						<=> nDandESandnQornP-OPA
+nDandES-OPA 						<=> nDandESandnUornP-OPA
+nDandES-OPA 						<=> nDandESandnQ-OPA
+nDandES-OPA 						<=> nDandESandnU-OPA
+nDandES-OPA 						<=> nDandESandnUornH-OPA
 nDandESandnUornP-OPA 				=> nDandESandnQandnP-OPA
 nDandESandnUornP-OPA 				=> nDandESandnP-OPA
 nDandESandnQornP-OPA 				=> nDandESandnP-OPA
@@ -223,6 +223,79 @@ UandP-OPA       => nDandESandUandP-OPA
 achievedInGeneral => N-OPA
 
 
+
+# Section Image Opaqueness
+wUA-OCA	 			=|=> unachievable
+CU-OPA 				=|=> wUA-OCA
+nDandES-OPA 		=> wUA-OCA
+nDandESandnU-OPA 	=> wUA-OCA
+nDandESandnP-OPA 	=|=> wUA-OCA
+nCU-OCA 			=|=> wUA-OCA
+N-OPA 				=> wUA-OCA
+wUA-OCA 			=|=> nQornP-OCA
+
+# and reasonable OPA notion
+wUA-OCA		=|=> H-OPA
+wUA-OCA		=|=> UorH-OPA
+wUA-OCA		=|=> U-OPA
+wUA-OCA		=|=> H-OPA
+wUA-OCA		=|=> U-OPA
+wUA-OCA		=|=> UorP-OPA
+wUA-OCA		=|=> P-OPA 
+wUA-OCA		=|=> UandH-OPA
+wUA-OCA		=|=> Q-OPA
+wUA-OCA		=|=> UandH-OPA
+wUA-OCA		=|=> P-OPA
+wUA-OCA		=|=> U-OPA
+wUA-OCA		=|=> QorP-OPA
+wUA-OCA		=|=> UandH-OPA
+wUA-OCA		=|=> Q-OPA
+wUA-OCA		=|=> UandP-OPA
+wUA-OCA		=|=> QandP-OPA
+wUA-OCA		=|=> UandP-OPA
+wUA-OCA		=|=> P-OPA
+wUA-OCA		=|=> Q-OPA
+wUA-OCA		=|=> UandP-OPA
+wUA-OCA		=|=> UandP-OPA
+wUA-OCA		=|=> QandP-OPA
+wUA-OCA     =|=> QandP-OPA
+wUA-OCA		=|=> Q-OPA
+wUA-OCA		=|=> QorP-OPA
+
+wUA-OCA		=|=> nDandESandCU-OPA
+wUA-OCA		=|=> nDandESandH-OPA
+wUA-OCA		=|=> nDandESandUorH-OPA
+wUA-OCA		=|=> nDandESandU-OPA
+wUA-OCA		=|=> nDandESandH-OPA
+wUA-OCA		=|=> nDandESandU-OPA
+wUA-OCA		=|=> nDandESandUorP-OPA
+wUA-OCA		=|=> nDandESandP-OPA 
+wUA-OCA		=|=> nDandESandUandH-OPA
+wUA-OCA		=|=> nDandESandQ-OPA
+wUA-OCA		=|=> nDandESandUandH-OPA
+wUA-OCA		=|=> nDandESandP-OPA
+wUA-OCA		=|=> nDandESandU-OPA
+wUA-OCA		=|=> nDandESandQorP-OPA
+wUA-OCA		=|=> nDandESandUandH-OPA
+wUA-OCA		=|=> nDandESandQ-OPA
+wUA-OCA		=|=> nDandESandUandP-OPA
+wUA-OCA		=|=> nDandESandQandP-OPA
+wUA-OCA		=|=> nDandESandUandP-OPA
+wUA-OCA		=|=> nDandESandP-OPA
+wUA-OCA		=|=> nDandESandQ-OPA
+wUA-OCA		=|=> nDandESandUandP-OPA
+wUA-OCA	 	=|=> nDandESandUandP-OPA
+wUA-OCA		=|=> nDandESandQandP-OPA
+wUA-OCA     =|=> nDandESandQandP-OPA
+wUA-OCA		=|=> nDandESandQ-OPA
+wUA-OCA		=|=> nDandESandQorP-OPA
+
+wUA-OCA		=|=> nDandESandnCU-OPA
+wUA-OCA		=|=> nDandESandnH-OPA
+wUA-OCA		=|=> nDandESandnP-OPA
+wUA-OCA		=|=> nDandESandnUandnH-OPA
+wUA-OCA		=|=> nDandESandnQandnP-OPA
+wUA-OCA		=|=> nDandESandnUandnP-OPA
 
 
 

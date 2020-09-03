@@ -106,6 +106,7 @@ else:
 		"achievedInGeneral": "achieved in general",
 		"unachievable": "unachievable",
 		"N-OPA": "\\N-OPA",
+		"wUA-OCA": "\\inactSender_A-OCA",
 
 		"CU-OPA": "|U|-OPA",
 		"UorH-OPA": "U \\lor H-OPA",
@@ -346,6 +347,7 @@ else:
 		"family": "\\text{Special Notions}",
 		"page": 8,
 		"notions": [
+			"wUA-OCA",
 			"achievedInGeneral",
 			"unachievable",
 			"N-OPA"
