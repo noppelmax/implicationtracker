@@ -1,3 +1,19 @@
+
+# S function
+
+## img opa
 wUA-OCA <=> wUV0-OCA
+wLSRAA-OCA => wUA-OCA
 
 
+## abs val opa
+LSCACID-OCA => nLSCACID-OCA
+nLSCACID-OCA =|=> LSCACID-OCA
+LSCACID-OCA => UA-OCA
+
+
+
+
+# Appendix Table
+wUA-OCA =|=> UA-OCA
+UA-OCA =|=> wUA-OCA

@@ -67,8 +67,17 @@ elif USE_OPAQUENESS:
 		"achievedInGeneral": "achieved in general",
 		"unachievable": "unachievable",
 		"N-OPA": "\\N-OPA",
-		"wUA-OCA": "\\widetilde{U}_A-OCA",
-		"wUV0-OCA": "\\widetilde{U}_{U_{v_0}}-OCA",
+		"wUA-OCA": "\\inactSender_A-OCA",
+		"wUV0-OCA": "\\inactSender_{U_{v_0}}-OCA",
+		"UA-OCA": "\\actSender_A-OCA",
+		"UV0-OCA": "\\actSender_{U_{v_0}}-OCA",
+		"wLSRAA-OCA": "\\inactSenderReceiver_{A \\times A}-OCA",
+		"LSRAA-OCA": "\\inactSenderReceiver_{A \\times A}-OCA",
+		"nUPhi-OCA": "\\overline{U}^\\varphi-OCA",
+		"nUEmptyset-OCA": "\\overline{U}^\\emptyset-OCA",
+		"LSCACID-OCA": "\\senderOfCom_{A \\times CID}-OCA",
+		"nLSCACID-OCA": "\\notSenderOfCom_{A \\times CID}-OCA",
+
 	}
 
 	pages = [
@@ -81,6 +90,13 @@ elif USE_OPAQUENESS:
 				"N-OPA",
 				"wUA-OCA",
 				"wUV0-OCA",
+				"UA-OCA",
+				"UV0-OCA",
+				"wLSRAA-OCA",
+				"nUPhi-OCA",
+				"nUEmptyset-OCA",
+				"LSCACID-OCA",
+				"nLSCACID-OCA",
 				
 			]
 		}
@@ -547,13 +563,21 @@ def latexExport(adjMatrix,adjMatrixNon,outfilename,notions,page):
 
 	outfile = open(outfilename+"Page"+str(page["page"])+".tex","w")
 	outfile.write('\\begin{longtable}{|r|')
+	columnnumber = 1
 	for j in range(len(page["notions"])):
 		outfile.write("c|")
+		columnnumber += 1
 	outfile.write("}\n")
 	outfile.write("\\hline")
 	for dest in page["notions"]:
 		outfile.write("&\\rothead{$%s$}" % (latexEncoding[dest]))
 	outfile.write("\\\\\n")
+	outfile.write("\\hline\n")
+	outfile.write("\\endhead\n")
+	outfile.write("\\hline \\multicolumn{%d}{r}{\\textit{Continued on next page}}\n" % columnnumber)
+	outfile.write("\\endfoot\n")
+	outfile.write("\\endlastfoot\n")
+
 	for src in range(0,len(notions)):
 		outfile.write("\\hline\n")
 		outfile.write("$%s$" % (latexEncoding[notions[src]]))
@@ -641,20 +665,18 @@ if __name__ == '__main__':
 	adjMatrix = copyMatrix(originalMatrix)
 
 	for dest in range(0,len(notions)):
-		if USE_TEST == False:
-			# achieved in general implies every notion
-			adjMatrix[notions.index("achievedInGeneral")][dest] = True
-			# unachievable implies every notion
-			adjMatrix[notions.index("unachievable")][dest] = True;
-			pass
+		# achieved in general implies every notion
+		adjMatrix[notions.index("achievedInGeneral")][dest] = True
+		# unachievable implies every notion
+		adjMatrix[notions.index("unachievable")][dest] = True;
+		pass
 
 	adjMatrix = transitivityLoop(adjMatrix,notions)
 
 	for dest in range(0,len(notions)):
-		if USE_TEST == False:
-			if adjMatrix[dest][notions.index("unachievable")] == False:
-				adjMatrix[notions.index("N-OPA")][dest] = True;
-				pass
+		if adjMatrix[dest][notions.index("unachievable")] == False:
+			adjMatrix[notions.index("N-OPA")][dest] = True;
+			pass
 
 	adjMatrix = transitivityLoop(adjMatrix,notions)
 
@@ -666,12 +688,11 @@ if __name__ == '__main__':
 	adjMatrixNon = copyMatrix(originalMatrixNon)
 
 	for dest in range(0,len(notions)):
-		if USE_TEST == False:
-			if adjMatrix[dest][notions.index("unachievable")] == False:
-				adjMatrixNon[dest][notions.index("unachievable")] = True;
-				if adjMatrix[dest][notions.index("achievedInGeneral")] == False and dest != notions.index("N-OPA") and adjMatrix[dest][notions.index("N-OPA")] == False:
-					adjMatrixNon[dest][notions.index("N-OPA")] = True;
-				pass
+		if adjMatrix[dest][notions.index("unachievable")] == False:
+			adjMatrixNon[dest][notions.index("unachievable")] = True;
+			if adjMatrix[dest][notions.index("achievedInGeneral")] == False and dest != notions.index("N-OPA") and adjMatrix[dest][notions.index("N-OPA")] == False:
+				adjMatrixNon[dest][notions.index("N-OPA")] = True;
+			pass
 
 	adjMatrixNon = antitransitivityLoop(adjMatrix,adjMatrixNon,notions)
 
@@ -720,14 +741,14 @@ if __name__ == '__main__':
 	logger.info("Number of incompletenesses: %5d" % incompletenesses)
 
 	dot = Digraph(comment='Overview')
-	n = 0
-	for i in notions:
+	for i in range(0,len(notions)):
 		c = "white"
-		dot.node(str(n), i, style='filled',fillcolor=c)
-		n = n+1
+		dot.node(notions[i], notions[i], style='filled',fillcolor=c)
 
-	for e in edges:
-		dot.edge(str(e[0]),str(e[1]))
+	for dest in range(0,len(notions)):
+		for src in range(0,len(notions)):
+			if adjMatrix[dest][src] == True:
+				dot.edge(notions[dest],notions[src])
 
 
 

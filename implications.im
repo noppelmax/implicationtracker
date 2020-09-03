@@ -20,10 +20,12 @@ P-OPA 			=> QandP-OPA
 P-OPA 			=> UandP-OPA
 QorP-OPA		=> P-OPA
 QorP-OPA		=> Q-OPA
-UandH-OPA		=> QandP-OPA
+UandH-OPA		=> UandP-OPA
 QorP-OPA		=> UandP-OPA
 Q-OPA 			=> QandP-OPA
 UandP-OPA       => QandP-OPA
+UandH-OPA 		=> Q-OPA
+H-OPA 			=> QorP-OPA
 
 
 # nDESS-OPA Family
@@ -48,10 +50,12 @@ nDandESandP-OPA 			=> nDandESandQandP-OPA
 nDandESandP-OPA 			=> nDandESandUandP-OPA
 nDandESandQorP-OPA			=> nDandESandP-OPA
 nDandESandQorP-OPA			=> nDandESandQ-OPA
-nDandESandUandH-OPA			=> nDandESandQandP-OPA
+nDandESandUandH-OPA			=> nDandESandUandP-OPA
 nDandESandQorP-OPA		 	=> nDandESandUandP-OPA
 nDandESandQ-OPA 			=> nDandESandQandP-OPA
 nDandESandUandP-OPA       	=> nDandESandQandP-OPA
+nDandESandUandH-OPA			=> nDandESandQ-OPA
+nDandESandH-OPA 			=> nDandESandQorP-OPA
 
 
 nDandESandCU-OPA			=|=> achievedInGeneral
@@ -131,6 +135,14 @@ nDandESandnU-OPA 					=> nDandESandnUandnH-OPA
 nDandESandnQ-OPA 					=> nDandESandnQandnP-OPA
 nDandESandnQ-OPA 					=> nDandESandnH-OPA
 nDandESandnUornH-OPA 				=> nDandESandnH-OPA
+nDandESandnQ-OPA 					=> nDandESandnUornH-OPA
+nDandESandnUandnP-OPA 				=> nDandESandnUandnH-OPA
+nDandESandnQornP-OPA 				=> nDandESandnH-OPA
+nDandESandnUandnH-OPA 				=> nDandESandnCU-OPA
+nDandESandnQandnP-OPA 				=> nDandESandnH-OPA
+
+# To show!
+#nDandESandnCU-OPA 				=> nDandESandnP-OPA
 
 
 # nS-OCA Family
@@ -158,9 +170,9 @@ nUornH-OCA			=> nQornP-OCA
 nQandnP-OCA			=> nUornP-OCA
 nQ-OCA 				=> nQornP-OCA
 nUornP-OCA        	=> nQornP-OCA
-
-
-
+nUornH-OCA 			=> nQ-OCA
+nH-OCA 				=> nQandnP-OCA
+nUornH-OCA 			=> nUornP-OCA
 
 # nDESnS-OCA Family
 nDandESandnUornP-OCA 				<=> unachievable
@@ -176,6 +188,7 @@ nDandESandnUandnP-OCA 				<=> unachievable
 nDandESandnQandnP-OCA 				<=> unachievable
 nDandESandnUandnH-OCA 				<=> unachievable
 nDandES-OCA  						<=> achievedInGeneral
+
 nDandES-OCA 						<=> nDandES-OCA2
 nDandES-OPA 						<=> nDandES-OPA2
 
@@ -207,9 +220,151 @@ UandP-OPA       => nDandESandUandP-OPA
 
 
 
-
-
 achievedInGeneral => N-OPA
+
+
+
+
 
 # In Appendix
 nCU-OCA  =|=> N-OPA
+
+
+
+H-OPA 				=|=> CU-OPA
+P-OPA 				=|=> H-OPA
+U-OPA 				=|=> CU-OPA
+Q-OPA 				=|=> U-OPA
+QandP-OPA 			=|=> P-OPA
+UorH-OPA 			=|=> CU-OPA
+UandP-OPA  			=|=> UorH-OPA
+UandH-OPA 			=|=> UorP-OPA
+UandP-OPA 			=|=> QorP-OPA
+QandP-OPA 			=|=> UandP-OPA
+QorP-OPA 			=|=> UorP-OPA
+QorP-OPA 			=|=> H-OPA
+QorP-OPA 			=|=> U-OPA
+QorP-OPA 			=|=> UorH-OPA
+QorP-OPA 			=|=> UandH-OPA
+UandP-OPA 			=|=> Q-OPA
+UandP-OPA 			=|=> P-OPA
+UandP-OPA 			=|=> UandH-OPA
+QandP-OPA 			=|=> Q-OPA
+QandP-OPA 			=|=> UandH-OPA
+U-OPA 				=|=> QorP-OPA
+U-OPA 				=|=> P-OPA
+U-OPA 				=|=> H-OPA
+U-OPA 				=|=> UorP-OPA
+U-OPA 				=|=> UorH-OPA
+P-OPA 				=|=> Q-OPA
+P-OPA 				=|=> QorP-OPA
+Q-OPA 				=|=> UandP-OPA
+H-OPA 				=|=> U-OPA
+H-OPA 				=|=> UorP-OPA
+H-OPA 				=|=> UorH-OPA
+UorP-OPA 			=|=> H-OPA
+UorP-OPA 			=|=> UorH-OPA
+
+nDandESandH-OPA 				=|=> nDandESandCU-OPA
+nDandESandP-OPA 				=|=> nDandESandH-OPA
+nDandESandU-OPA 				=|=> nDandESandCU-OPA
+nDandESandQ-OPA 				=|=> nDandESandU-OPA
+nDandESandQandP-OPA 			=|=> nDandESandP-OPA
+nDandESandUorH-OPA 				=|=> nDandESandCU-OPA
+nDandESandUandP-OPA  			=|=> nDandESandUorH-OPA
+nDandESandUandH-OPA 			=|=> nDandESandUorP-OPA
+nDandESandUandP-OPA 			=|=> nDandESandQorP-OPA
+nDandESandQandP-OPA 			=|=> nDandESandUandP-OPA
+nDandESandQorP-OPA 				=|=> nDandESandUorP-OPA
+nDandESandQorP-OPA 				=|=> nDandESandH-OPA
+nDandESandQorP-OPA 				=|=> nDandESandU-OPA
+nDandESandQorP-OPA 				=|=> nDandESandUorH-OPA
+nDandESandQorP-OPA 				=|=> nDandESandUandH-OPA
+nDandESandUandP-OPA 			=|=> nDandESandQ-OPA
+nDandESandUandP-OPA 			=|=> nDandESandP-OPA
+nDandESandUandP-OPA 			=|=> nDandESandUandH-OPA
+nDandESandQandP-OPA 			=|=> nDandESandQ-OPA
+nDandESandQandP-OPA 			=|=> nDandESandUandH-OPA
+nDandESandU-OPA 				=|=> nDandESandQorP-OPA
+nDandESandU-OPA 				=|=> nDandESandP-OPA
+nDandESandU-OPA 				=|=> nDandESandH-OPA
+nDandESandU-OPA 				=|=> nDandESandUorP-OPA
+nDandESandU-OPA 				=|=> nDandESandUorH-OPA
+nDandESandP-OPA 				=|=> nDandESandQ-OPA
+nDandESandP-OPA 				=|=> nDandESandQorP-OPA
+nDandESandQ-OPA 				=|=> nDandESandUandP-OPA
+nDandESandH-OPA 				=|=> nDandESandU-OPA
+nDandESandH-OPA 				=|=> nDandESandUorP-OPA
+nDandESandH-OPA 				=|=> nDandESandUorH-OPA
+nDandESandUorP-OPA 			 	=|=> nDandESandH-OPA
+nDandESandUorP-OPA 				=|=> nDandESandUorH-OPA
+
+
+nDandESandH-OPA 				=|=> CU-OPA
+nDandESandP-OPA 				=|=> H-OPA
+nDandESandU-OPA 				=|=> CU-OPA
+nDandESandQ-OPA 				=|=> U-OPA
+nDandESandQandP-OPA 			=|=> P-OPA
+nDandESandUorH-OPA 				=|=> CU-OPA
+nDandESandUandP-OPA  			=|=> UorH-OPA
+nDandESandUandH-OPA 			=|=> UorP-OPA
+nDandESandUandP-OPA 			=|=> QorP-OPA
+nDandESandQorP-OPA 				=|=> UorP-OPA
+nDandESandQandP-OPA 			=|=> nDandESandUandP-OPA
+nDandESandQorP-OPA 				=|=> H-OPA
+nDandESandQorP-OPA 				=|=> U-OPA
+nDandESandQorP-OPA 				=|=> UorH-OPA
+nDandESandQorP-OPA 				=|=> UandH-OPA
+nDandESandUandP-OPA 			=|=> Q-OPA
+nDandESandUandP-OPA 			=|=> P-OPA
+nDandESandUandP-OPA 			=|=> UandH-OPA
+nDandESandQandP-OPA 			=|=> Q-OPA
+nDandESandQandP-OPA 			=|=> UandH-OPA
+nDandESandU-OPA 				=|=> QorP-OPA
+nDandESandU-OPA 				=|=> P-OPA
+nDandESandU-OPA 				=|=> H-OPA
+nDandESandU-OPA 				=|=> UorP-OPA
+nDandESandU-OPA 				=|=> UorH-OPA
+nDandESandP-OPA 				=|=> Q-OPA
+nDandESandP-OPA 				=|=> QorP-OPA
+nDandESandQ-OPA 				=|=> UandP-OPA
+nDandESandH-OPA 				=|=> U-OPA
+nDandESandH-OPA 				=|=> UorP-OPA
+nDandESandH-OPA 				=|=> UorH-OPA
+nDandESandUorP-OPA 				=|=> H-OPA
+nDandESandUorP-OPA 				=|=> UorH-OPA
+
+
+H-OPA 				=|=> nDandESandCU-OPA
+P-OPA 				=|=> nDandESandH-OPA
+U-OPA 				=|=> nDandESandCU-OPA
+Q-OPA 				=|=> nDandESandU-OPA
+QandP-OPA 			=|=> nDandESandP-OPA
+UorH-OPA 			=|=> nDandESandCU-OPA
+UandP-OPA  			=|=> nDandESandUorH-OPA
+UandH-OPA 			=|=> nDandESandUorP-OPA
+UandP-OPA 			=|=> nDandESandQorP-OPA
+QandP-OPA 			=|=> nDandESandUandP-OPA
+QorP-OPA 			=|=> nDandESandUorP-OPA
+QorP-OPA 			=|=> nDandESandH-OPA
+QorP-OPA 			=|=> nDandESandU-OPA
+QorP-OPA 			=|=> nDandESandUorH-OPA
+QorP-OPA 			=|=> nDandESandUandH-OPA
+UandP-OPA 			=|=> nDandESandQ-OPA
+UandP-OPA 			=|=> nDandESandP-OPA
+UandP-OPA 			=|=> nDandESandUandH-OPA
+QandP-OPA 			=|=> nDandESandQ-OPA
+QandP-OPA 			=|=> nDandESandUandH-OPA
+U-OPA 				=|=> nDandESandQorP-OPA
+U-OPA 				=|=> nDandESandP-OPA
+U-OPA 				=|=> nDandESandH-OPA
+U-OPA 				=|=> nDandESandUorP-OPA
+U-OPA 				=|=> nDandESandUorH-OPA
+P-OPA 				=|=> nDandESandQ-OPA
+P-OPA 				=|=> nDandESandQorP-OPA
+Q-OPA 				=|=> nDandESandUandP-OPA
+H-OPA 				=|=> nDandESandU-OPA
+H-OPA 				=|=> nDandESandUorP-OPA
+H-OPA 				=|=> nDandESandUorH-OPA
+UorP-OPA 			=|=> nDandESandH-OPA
+UorP-OPA 			=|=> nDandESandUorH-OPA

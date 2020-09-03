@@ -1,5 +1,8 @@
 #!/bin/bash
 
 #python main.py test
-#python main.py normal
-python main.py opa
+python main.py normal
+#python main.py opa
+
+
+#python generateTableOfCounterexamples.py
