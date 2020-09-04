@@ -628,8 +628,9 @@ def latexExport(adjMatrix,adjMatrixNon,outfilename,notions,page):
 			else:
 				outfile.write("")
 		outfile.write("\\\\\n")
-	outfile.write("\\hline")
+	outfile.write("\\hline\n")
 	outfile.write('\\caption{Completeness $%s$ family}\n' % (page["family"]))
+	outfile.write('\\label{table:completenessPage%d}\n' % (page["page"]))
 	outfile.write('\\end{longtable}\n')
 	outfile.close()
 
