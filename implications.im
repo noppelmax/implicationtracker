@@ -413,9 +413,84 @@ LSRCAACIDrealv0-OCA		=|=> nDandESandnUandnP-OPA
 
 
 # Section KERNEL OPAQUENESS ON S
+wLsSCIDrealv0CIDrealv0-OCA				=|=> LSCACIDrealv0-OCA
+LSCACIDrealv0-OCA 						=|=> wLsSCIDrealv0CIDrealv0-OCA
+wLsSCIDrealv0CIDrealv0-OCA				=|=> wUA-OCA
+wUA-OCA 								=|=> wLsSCIDrealv0CIDrealv0-OCA
+CU-OPA 									=> wLsSCIDrealv0CIDrealv0-OCA
+U-OPA 									=> wLsSCIDrealv0CIDrealv0-OCA
+H-OPA 									=> wLsSCIDrealv0CIDrealv0-OCA
+Q-OPA 									=> wLsSCIDrealv0CIDrealv0-OCA
+P-OPA 									=|=> wLsSCIDrealv0CIDrealv0-OCA
+nDandES-OPA 							=> wLsSCIDrealv0CIDrealv0-OCA
+nDandESandCU-OPA 						=|=> wLsSCIDrealv0CIDrealv0-OCA
+nDandESandnP-OPA 						=|=> wLsSCIDrealv0CIDrealv0-OCA
+nCU-OCA 								=|=> wLsSCIDrealv0CIDrealv0-OCA
+wLsSCIDrealv0CIDrealv0-OCA 				=|=> nQornP-OCA
 
 
+# No reasonable OPA notion
+wLsSCIDrealv0CIDrealv0-OCA		=|=> H-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> UorH-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> U-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> H-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> U-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> UorP-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> P-OPA 
+wLsSCIDrealv0CIDrealv0-OCA		=|=> UandH-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> Q-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> UandH-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> P-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> U-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> QorP-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> UandH-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> Q-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> UandP-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> QandP-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> UandP-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> P-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> Q-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> UandP-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> UandP-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> QandP-OPA
+wLsSCIDrealv0CIDrealv0-OCA     =|=> QandP-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> Q-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> QorP-OPA
 
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandCU-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandH-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandUorH-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandU-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandH-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandU-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandUorP-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandP-OPA 
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandUandH-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandQ-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandUandH-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandP-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandU-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandQorP-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandUandH-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandQ-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandUandP-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandQandP-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandUandP-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandP-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandQ-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandUandP-OPA
+wLsSCIDrealv0CIDrealv0-OCA	 	=|=> nDandESandUandP-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandQandP-OPA
+wLsSCIDrealv0CIDrealv0-OCA     =|=> nDandESandQandP-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandQ-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandQorP-OPA
+
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandnCU-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandnH-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandnP-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandnUandnH-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandnQandnP-OPA
+wLsSCIDrealv0CIDrealv0-OCA		=|=> nDandESandnUandnP-OPA
 
 
 
