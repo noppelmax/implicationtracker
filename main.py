@@ -134,10 +134,10 @@ else:
 		"LSRCAACIDrealv0-OCA": "\\senderReceiverOfCom_{A \\times A \\times CID^{real}_{v_0}}-OCA",
 
 		# kernel opa s
-		"wLsSCIDrealv0CIDrealv0-OCA": "\\notSameSender__{CID^{real}_{v_0} \\times CID^{real}_{v_0}}-OCA",
+		"wLsSCIDrealv0CIDrealv0-OCA": "\\notSameSender_{CID^{real}_{v_0} \\times CID^{real}_{v_0}}-OCA",
 
 		# kernel opa sr
-		"wLsSRCIDrealv0CIDrealv0-OCA": "\\notSameSenderReceiver__{CID^{real}_{v_0} \\times CID^{real}_{v_0}}-OCA",
+		"wLsSRCIDrealv0CIDrealv0-OCA": "\\notSameSenderReceiver_{CID^{real}_{v_0} \\times CID^{real}_{v_0}}-OCA",
 		
 
 		"CU-OPA": "|U|-OPA",

@@ -509,8 +509,13 @@ nCU-OCA 						=|=> wLsSRCIDrealv0CIDrealv0-OCA
 
 
 
+
+
 # In Appendix
 nCU-OCA  =|=> N-OPA
+
+wUA-OCA =|=> LSCACIDrealv0-OCA
+#LSRCAACIDrealv0-OCA =|=> wLSRAA-OCA
 
 
 
