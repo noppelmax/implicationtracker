@@ -299,15 +299,15 @@ wUA-OCA		=|=> nDandESandnQandnP-OPA
 wUA-OCA		=|=> nDandESandnUandnP-OPA
 
 # Section IMAGE OPAQUENESS ON SR
-wUA-OCA     			=> wLSRAA-OCA
+wUA-OCA     			=> wUUAA-OCA
 # not shown:
-#wLSRAA-OCA 			=|=> wUA-OCA
-CU-OPA 					=> wLSRAA-OCA
-U-OPA 					=> wLSRAA-OCA
-QandP-OPA 				=> wLSRAA-OCA
-nDandESandQandP-OPA 	=> wLSRAA-OCA
-nDandESandnP-OPA        =|=> wLSRAA-OCA
-nCU-OCA 				=|=> wLSRAA-OCA
+#wUUAA-OCA 				=|=> wUA-OCA
+CU-OPA 					=> wUUAA-OCA
+U-OPA 					=> wUUAA-OCA
+QandP-OPA 				=> wUUAA-OCA
+nDandESandQandP-OPA 	=> wUUAA-OCA
+nDandESandnP-OPA        =|=> wUUAA-OCA
+nCU-OCA 				=|=> wUUAA-OCA
 
 
 # Section ABSOLUTE VALUE OPAQUENESS ON S (version 2 )
@@ -408,11 +408,6 @@ LSRCAACIDrealv0-OCA		=|=> nDandESandnQandnP-OPA
 LSRCAACIDrealv0-OCA		=|=> nDandESandnUandnP-OPA
 
 
-
-
-
-
-
 # Section KERNEL OPAQUENESS ON S (version 2)
 wLsSCIDrealv0CIDrealv0-OCA				=|=> LSCACIDrealv0-OCA
 LSCACIDrealv0-OCA 						=|=> wLsSCIDrealv0CIDrealv0-OCA
@@ -501,6 +496,7 @@ wLsSCIDrealv0CIDrealv0-OCA 		=> wLsSRCIDrealv0CIDrealv0-OCA
 wLsSRCIDrealv0CIDrealv0-OCA 	=|=> wLsSCIDrealv0CIDrealv0-OCA
 wUA-OCA 						=|=> wLsSRCIDrealv0CIDrealv0-OCA
 
+
 CU-OPA 							=> wLsSRCIDrealv0CIDrealv0-OCA
 U-OPA 							=> wLsSRCIDrealv0CIDrealv0-OCA
 H-OPA 							=> wLsSRCIDrealv0CIDrealv0-OCA
@@ -518,8 +514,8 @@ nCU-OCA 						=|=> wLsSRCIDrealv0CIDrealv0-OCA
 # In Appendix
 nCU-OCA  =|=> N-OPA
 
-wUA-OCA =|=> LSCACIDrealv0-OCA
-LSRCAACIDrealv0-OCA =|=> wLSRAA-OCA
+wUA-OCA 			=|=> LSCACIDrealv0-OCA
+LSRCAACIDrealv0-OCA =|=> wUUAA-OCA
 
 
 

@@ -85,19 +85,16 @@ elif USE_OPAQUENESS:
 			"family": "opaqueness notions",
 			"page": 20,
 			"notions": [
+				"wUA-OCA",
+				"wUUv0-OCA",
+				"wUUAA-OCA",
+				"LSCACIDrealv0-OCA",
+				"LSRCAACIDrealv0-OCA",
+				"wLsSCIDrealv0CIDrealv0-OCA",
+				"wLsSRCIDrealv0CIDrealv0-OCA",
 				"achievedInGeneral",
 				"unachievable",
-				"N-OPA",
-				"wUA-OCA",
-				"wUv0-OCA",
-				"UA-OCA",
-				"UUv0-OCA",
-				"wLSRAA-OCA",
-				"nUPhi-OCA",
-				"nUEmptyset-OCA",
-				"LSCACID-OCA",
-				"nLSCACID-OCA",
-				
+				"N-OPA"
 			]
 		}
 	]
@@ -119,10 +116,10 @@ else:
 		"nUEmptyset-OCA": "\\overline{U}^\\emptyset-OCA",
 
 		# img opa sr
-		"wLSRAA-OCA": "\\inactSenderReceiver_{A \\times A}-OCA",
+		"wUUAA-OCA": "\\inactSenderReceiver_{A \\times A}-OCA",
 
 		# comp img opa sr
-		"LSRAA-OCA": "\\inactSenderReceiver_{A \\times A}-OCA",
+		"UUAA-OCA": "\\actSenderReceiver_{A \\times A}-OCA",
 
 		# abs val opa s
 		"LSCACIDrealv0-OCA": "\\senderOfCom_{A \\times CID^{real}_{v_0}}-OCA",
@@ -244,7 +241,7 @@ else:
 
 	pages = [ 
 		{
-		"family": "\\mathbb{S}-OPA",
+		"family": "$\\mathbb{S}-OPA$ family",
 		"page": 0,
 		"notions":[
 			"CU-OPA",
@@ -260,7 +257,7 @@ else:
 			"QorP-OPA"
 		]},
 		{
-		"family": "\\nDiamond \\land E_S \\land \\mathbb{S}-OPA",
+		"family": "$\\nDiamond \\land E_S \\land \\mathbb{S}-OPA$ family",
 		"page": 1,
 		"notions":[
 			"nDandES-OPA",
@@ -277,7 +274,7 @@ else:
 			"nDandESandQorP-OPA"
 		]},
 		{
-		"family": "\\mathbb{S}-OCA",
+		"family": "$\\mathbb{S}-OCA$ family",
 		"page": 2,
 		"notions":[
 			"CU-OCA",
@@ -293,7 +290,7 @@ else:
 			"QorP-OCA"
 		]},
 		{
-		"family": "\\nDiamond \\land E_S \\land \\mathbb{S}-OCA",
+		"family": "$\\nDiamond \\land E_S \\land \\mathbb{S}-OCA$ family",
 		"page": 3,
 		"notions":[
 			"nDandES-OCA",
@@ -310,7 +307,7 @@ else:
 			"nDandESandQorP-OCA"
 		]},
 		{
-		"family": "\\overline{\\mathbb{S}}-OPA",
+		"family": "$\\overline{\\mathbb{S}}-OPA$ family",
 		"page": 4,
 		"notions":[
 			"nCU-OPA",
@@ -326,7 +323,7 @@ else:
 			"nQornP-OPA"
 		]},
 		{
-		"family": "\\nDiamond \\land E_S \\land \\overline{\\mathbb{S}}-OPA",
+		"family": "$\\nDiamond \\land E_S \\land \\overline{\\mathbb{S}}-OPA$ family",
 		"page": 5,
 		"notions":[
 			"nDandES-OPA2",
@@ -343,7 +340,7 @@ else:
 			"nDandESandnQornP-OPA"
 		]},
 		{
-		"family": "\\overline{\\mathbb{S}}-OCA",
+		"family": "$\\overline{\\mathbb{S}}-OCA$ family",
 		"page": 6,
 		"notions":[
 			"nCU-OCA",
@@ -359,7 +356,7 @@ else:
 			"nQornP-OCA"
 		]},
 		{
-		"family": "\\nDiamond \\land E_S \\land \\overline{\\mathbb{S}}-OCA",
+		"family": "$\\nDiamond \\land E_S \\land \\overline{\\mathbb{S}}-OCA$ family",
 		"page": 7,
 		"notions": [
 			"nDandES-OCA2",
@@ -376,12 +373,12 @@ else:
 			"nDandESandnQornP-OCA"
 		]},
 		{
-		"family": "\\text{Special Notions}",
+		"family": "special notions",
 		"page": 8,
 		"notions": [
 			"wUA-OCA",
 			"wUUv0-OCA",
-			"wLSRAA-OCA",
+			"wUUAA-OCA",
 			"LSCACIDrealv0-OCA",
 			"LSRCAACIDrealv0-OCA",
 			"wLsSCIDrealv0CIDrealv0-OCA",
@@ -389,7 +386,27 @@ else:
 			"achievedInGeneral",
 			"unachievable",
 			"N-OPA"
-		]} ]
+		]}, 
+		{
+		"family": "opaqueness notions",
+		"page": 21,
+		"notions": [
+			"wUA-OCA",
+			"wUUAA-OCA",
+			"LSCACIDrealv0-OCA",
+			"LSRCAACIDrealv0-OCA",
+			"wLsSCIDrealv0CIDrealv0-OCA",
+			"wLsSRCIDrealv0CIDrealv0-OCA"
+		],
+		"srcNotions": [
+			"wUA-OCA",
+			"wUUAA-OCA",
+			"LSCACIDrealv0-OCA",
+			"LSRCAACIDrealv0-OCA",
+			"wLsSCIDrealv0CIDrealv0-OCA",
+			"wLsSRCIDrealv0CIDrealv0-OCA"
+		]},
+		]
 
 
 
@@ -600,6 +617,10 @@ def antiTransitivity(adjMatrix,adjMatrixNon,notions):
 	return adjMatrixNon
 
 def latexExport(adjMatrix,adjMatrixNon,outfilename,notions,page):
+	if "srcNotions" in page:
+		srcNotions = page["srcNotions"]
+	else:
+		srcNotions = notions
 
 	outfile = open(outfilename+"Page"+str(page["page"])+".tex","w")
 	outfile.write('\\begin{longtable}{|r|')
@@ -618,26 +639,27 @@ def latexExport(adjMatrix,adjMatrixNon,outfilename,notions,page):
 	outfile.write("\\endfoot\n")
 	outfile.write("\\endlastfoot\n")
 
-	for src in range(0,len(notions)):
+	for src in srcNotions:
 		outfile.write("\\hline\n")
-		outfile.write("$%s$" % (latexEncoding[notions[src]]))
+		outfile.write("$%s$" % (latexEncoding[src]))
 		for dest in page["notions"]:
 			outfile.write("&")
 			destIdx = notions.index(dest)
-			if src == destIdx:
+			srcIdx = notions.index(src)
+			if srcIdx == destIdx:
 				outfile.write("$=$")
-			elif adjMatrix[src][destIdx] == True and adjMatrix[destIdx][src] == True:
+			elif adjMatrix[srcIdx][destIdx] == True and adjMatrix[destIdx][srcIdx] == True:
 				outfile.write("$\\iff$")
-			elif adjMatrix[src][destIdx] == True:
+			elif adjMatrix[srcIdx][destIdx] == True:
 				outfile.write("$\\Rightarrow$")
 					#exit(0)
-			elif adjMatrixNon[src][destIdx] == True:
+			elif adjMatrixNon[srcIdx][destIdx] == True:
 				outfile.write("$\\cancel{\\Rightarrow}$")
 			else:
 				outfile.write("")
 		outfile.write("\\\\\n")
 	outfile.write("\\hline\n")
-	outfile.write('\\caption{Completeness $%s$ family}\n' % (page["family"]))
+	outfile.write('\\caption{Completeness %s}\n' % (page["family"]))
 	outfile.write('\\label{table:completenessPage%d}\n' % (page["page"]))
 	outfile.write('\\end{longtable}\n')
 	outfile.close()
@@ -689,6 +711,8 @@ if __name__ == '__main__':
 
 	notions = []
 	for page in pages:
+		if "srcNotions" in page:
+			continue
 		notions.extend(page["notions"])
 
 	edges,nonEdges,notions = getImplications(f,notions)
