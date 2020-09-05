@@ -3,16 +3,16 @@ import csv
 
 encoding = {
 	"nCU": "|U|",
-	"nUornH": "\\overline{U} \\lor \\overline{H}",
-	"nUornP": "\\overline{U} \\lor \\overline{P}",
-	"nH": "\\overline{H}",
-	"nQ": "\\overline{Q}",
-	"nP": "\\overline{P}",
+	"nUornH": "\\overline{U} \\lor \\overline{H^\\dagger}",
+	"nUornP": "\\overline{U} \\lor \\overline{P^\\dagger}",
+	"nH": "\\overline{H^\\dagger}",
+	"nQ": "\\overline{Q^\\dagger}",
+	"nP": "\\overline{P^\\dagger}",
 	"nU": "\\overline{U}",
-	"nUandnH": "\\overline{U} \\land \\overline{H}",
-	"nQandnP": "\\overline{Q} \\land \\overline{P}",
-	"nUandnP": "\\overline{U} \\land \\overline{P}",
-	"nQornP": "\\overline{Q} \\lor \\overline{P}",
+	"nUandnH": "\\overline{U} \\land \\overline{H^\\dagger}",
+	"nQandnP": "\\overline{Q^\\dagger} \\land \\overline{P^\\dagger}",
+	"nUandnP": "\\overline{U} \\land \\overline{P^\\dagger}",
+	"nQornP": "\\overline{Q^\\dagger} \\lor \\overline{P^\\dagger}",
 }
 
 game = "-OCA"

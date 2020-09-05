@@ -5,5 +5,5 @@ python main.py normal
 #python main.py opa
 
 
-#python generateTableOfCounterexamplesS.py
-#python generateTableOfCounterexamplesnS.py
+python generateTableOfCounterexamplesS.py
+python generateTableOfCounterexamplesnS.py

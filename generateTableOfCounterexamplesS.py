@@ -3,16 +3,16 @@ import csv
 
 encoding = {
 	"CU": "|U|",
-	"UorH": "(U \\lor H)",
-	"UorP": "(U \\lor P)",
-	"H": "H",
-	"Q": "Q",
-	"P": "P",
+	"UorH": "(U \\lor H^\\dagger)",
+	"UorP": "(U \\lor P^\\dagger)",
+	"H": "H^\\dagger",
+	"Q": "Q^\\dagger",
+	"P": "P^\\dagger",
 	"U": "U",
-	"UandH": "(U \\land H)",
-	"QandP": "(Q \\land P)",
-	"UandP": "(U \\land P)",
-	"QorP": "(Q \\lor P)",
+	"UandH": "(U \\land H^\\dagger)",
+	"QandP": "(Q^\\dagger \\land P^\\dagger)",
+	"UandP": "(U \\land P^\\dagger)",
+	"QorP": "(Q^\\dagger \\lor P^\\dagger)",
 }
 
 game = "-OPA"
