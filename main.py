@@ -135,6 +135,9 @@ else:
 
 		# kernel opa s
 		"wLsSCIDrealv0CIDrealv0-OCA": "\\notSameSender__{CID^{real}_{v_0} \\times CID^{real}_{v_0}}-OCA",
+
+		# kernel opa sr
+		"wLsSRCIDrealv0CIDrealv0-OCA": "\\notSameSenderReceiver__{CID^{real}_{v_0} \\times CID^{real}_{v_0}}-OCA",
 		
 
 		"CU-OPA": "|U|-OPA",
@@ -382,6 +385,7 @@ else:
 			"LSCACIDrealv0-OCA",
 			"LSRCAACIDrealv0-OCA",
 			"wLsSCIDrealv0CIDrealv0-OCA",
+			"wLsSRCIDrealv0CIDrealv0-OCA",
 			"achievedInGeneral",
 			"unachievable",
 			"N-OPA"
