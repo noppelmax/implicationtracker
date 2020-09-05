@@ -156,7 +156,7 @@ else:
 		"nDandESandU-OPA": "\\nDiamond \\land E_S \\land U-OPA",
 		"nDandESandUandH-OPA": "\\nDiamond \\land E_S \\land (U \\land H^\\dagger)-OPA",
 		"nDandESandQandP-OPA": "\\nDiamond \\land E_S \\land (Q^\\dagger \\land P^\\dagger)-OPA",
-		"nDandESandUandP-OPA": "\\nDiamond \\land E_S \\land (U \\land P^\\dagger^\\dagger)-OPA",
+		"nDandESandUandP-OPA": "\\nDiamond \\land E_S \\land (U \\land P^\\dagger)-OPA",
 		"nDandESandQorP-OPA": "\\nDiamond \\land E_S \\land (Q^\\dagger \\lor P^\\dagger)-OPA",
 
 		"CU-OCA": "|U|-OCA",
