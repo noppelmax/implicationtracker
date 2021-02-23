@@ -11,405 +11,6 @@ from graphviz import Digraph
 import sys
 import numpy
 
-FORMAT = "%(asctime)-15s %(levelname)s %(message)s"
-logging.basicConfig(format=FORMAT, level=logging.INFO)
-logger = logging.getLogger("main")
-logger.info("Starting run!")
-
-
-USE_OPAQUENESS = False
-USE_SEEN_NOTIONS = False
-USE_TEST = False
-
-if sys.argv[1] == "normal":
-	USE_OPAQUENESS = False
-	USE_TEST = False
-elif sys.argv[1] == "test":
-	USE_OPAQUENESS = False
-	USE_TEST = True
-elif sys.argv[1] == "opa":
-	USE_OPAQUENESS = True
-	USE_TEST = False
-
-if USE_TEST:
-	latexEncoding = {
-		"achievedInGeneral": "achieved in general",
-		"unachievable": "unachievable",
-		"N-OPA": "\\N-OPA",
-		"a": "a",
-		"b": "b",
-		"c": "c",
-		"d": "d",
-		"e": "e",
-		"f": "f",
-	}
-
-	pages = [
-		{
-			"family": "Test",
-			"page": 100,
-			"notions": [
-				"achievedInGeneral",
-				"unachievable",
-				"N-OPA",
-				"a",
-				"b",
-				"c",
-				"d",
-				"e",
-				"f",
-
-			]
-		}
-	]
-elif USE_OPAQUENESS:
-	latexEncoding = {
-		"achievedInGeneral": "achieved in general",
-		"unachievable": "unachievable",
-		"N-OPA": "\\N-OPA",
-		"wUA-OCA": "\\inactSender_A-OCA",
-		"wUV0-OCA": "\\inactSender_{U_{v_0}}-OCA",
-		"UA-OCA": "\\actSender_A-OCA",
-		"UV0-OCA": "\\actSender_{U_{v_0}}-OCA",
-		"wLSRAA-OCA": "\\inactSenderReceiver_{A \\times A}-OCA",
-		"LSRAA-OCA": "\\inactSenderReceiver_{A \\times A}-OCA",
-		"nUPhi-OCA": "\\overline{U}^\\varphi-OCA",
-		"nUEmptyset-OCA": "\\overline{U}^\\emptyset-OCA",
-		"LSCACID-OCA": "\\senderOfCom_{A \\times CID}-OCA",
-		"nLSCACID-OCA": "\\notSenderOfCom_{A \\times CID}-OCA",
-
-	}
-
-	pages = [
-		{
-			"family": "opaqueness notions",
-			"page": 20,
-			"notions": [
-				"wUA-OCA",
-				"wUUv0-OCA",
-				"wUUAA-OCA",
-				"LSCACIDrealv0-OCA",
-				"LSRCAACIDrealv0-OCA",
-				"wLsSCIDrealv0CIDrealv0-OCA",
-				"wLsSRCIDrealv0CIDrealv0-OCA",
-				"achievedInGeneral",
-				"unachievable",
-				"N-OPA"
-			]
-		}
-	]
-else:
-	latexEncoding = {
-		"achievedInGeneral": "achieved in general",
-		"unachievable": "unachievable",
-		"N-OPA": "\\N-OPA",
-		# img opa s
-		"wUA-OCA": "\\inactSender_A-OCA",
-		"wUUv0-OCA": "\\inactSender_{U_{v_0}}-OCA",
-
-		# comp img opa s
-		"UA-OCA": "\\actSender_A-OCA",
-		"UUv0-OCA": "\\actSender_{U_{v_0}}-OCA",
-
-		# special props
-		"nUPhi-OCA": "\\overline{U}^\\varphi-OCA",
-		"nUEmptyset-OCA": "\\overline{U}^\\emptyset-OCA",
-
-		# img opa sr
-		"wUUAA-OCA": "\\inactSenderReceiver_{A \\times A}-OCA",
-
-		# comp img opa sr
-		"UUAA-OCA": "\\actSenderReceiver_{A \\times A}-OCA",
-
-		# abs val opa s
-		"LSCACIDrealv0-OCA": "\\senderOfCom_{A \\times CID^{real}_{v_0}}-OCA",
-
-		# comp abs val opa s
-		"wLSCACIDrealv0-OCA": "\\notSenderOfCom_{A \\times CID^{real}_{v_0}}-OCA",
-
-		# abs val opa sr
-		"LSRCAACIDrealv0-OCA": "\\senderReceiverOfCom_{A \\times A \\times CID^{real}_{v_0}}-OCA",
-
-		# kernel opa s
-		"wLsSCIDrealv0CIDrealv0-OCA": "\\notSameSender_{CID^{real}_{v_0} \\times CID^{real}_{v_0}}-OCA",
-
-		# kernel opa sr
-		"wLsSRCIDrealv0CIDrealv0-OCA": "\\notSameSenderReceiver_{CID^{real}_{v_0} \\times CID^{real}_{v_0}}-OCA",
-		
-
-		"CU-OPA": "|U|-OPA",
-		"UorH-OPA": "U \\lor H^\\dagger-OPA",
-		"UorP-OPA": "U \\lor P^\\dagger-OPA",
-		"H-OPA": "H^\\dagger-OPA",
-		"Q-OPA": "Q^\\dagger-OPA",
-		"P-OPA": "P^\\dagger-OPA",
-		"U-OPA": "U-OPA",
-		"UandH-OPA": "U \\land H^\\dagger-OPA",
-		"QandP-OPA": "Q^\\dagger \\land P^\\dagger-OPA",
-		"UandP-OPA": "U \\land P^\\dagger-OPA",
-		"QorP-OPA": "Q^\\dagger \\lor P^\\dagger-OPA",
-
-		"nDandES-OPA": "\\nDiamond \\land E_S-OPA",
-		"nDandESandCU-OPA": "\\nDiamond \\land E_S \\land |U|-OPA",
-		"nDandESandUorH-OPA": "\\nDiamond \\land E_S \\land (U \\lor H^\\dagger)-OPA",
-		"nDandESandUorP-OPA": "\\nDiamond \\land E_S \\land (U \\lor P^\\dagger)-OPA",
-		"nDandESandH-OPA": "\\nDiamond \\land E_S \\land H^\\dagger-OPA",
-		"nDandESandQ-OPA": "\\nDiamond \\land E_S \\land Q^\\dagger-OPA",
-		"nDandESandP-OPA": "\\nDiamond \\land E_S \\land P^\\dagger-OPA",
-		"nDandESandU-OPA": "\\nDiamond \\land E_S \\land U-OPA",
-		"nDandESandUandH-OPA": "\\nDiamond \\land E_S \\land (U \\land H^\\dagger)-OPA",
-		"nDandESandQandP-OPA": "\\nDiamond \\land E_S \\land (Q^\\dagger \\land P^\\dagger)-OPA",
-		"nDandESandUandP-OPA": "\\nDiamond \\land E_S \\land (U \\land P^\\dagger)-OPA",
-		"nDandESandQorP-OPA": "\\nDiamond \\land E_S \\land (Q^\\dagger \\lor P^\\dagger)-OPA",
-
-		"CU-OCA": "|U|-OCA",
-		"UorH-OCA": "U \\lor H^\\dagger-OCA",
-		"UorP-OCA": "U \\lor P^\\dagger-OCA",
-		"H-OCA": "H^\\dagger-OCA",
-		"Q-OCA": "Q^\\dagger-OCA",
-		"P-OCA": "P^\\dagger-OCA",
-		"U-OCA": "U-OCA",
-		"UandH-OCA": "U \\land H^\\dagger-OCA",
-		"QandP-OCA": "Q^\\dagger \\land P^\\dagger-OCA",
-		"UandP-OCA": "U \\land P^\\dagger-OCA",
-		"QorP-OCA": "Q^\\dagger \\lor P^\\dagger-OCA",
-
-		"nDandES-OCA": "\\nDiamond \\land E_S-OCA",
-		"nDandESandCU-OCA": "\\nDiamond \\land E_S \\land |U|-OCA",
-		"nDandESandUorH-OCA": "\\nDiamond \\land E_S \\land (U \\lor H^\\dagger)-OCA",
-		"nDandESandUorP-OCA": "\\nDiamond \\land E_S \\land (U \\lor P^\\dagger)-OCA",
-		"nDandESandH-OCA": "\\nDiamond \\land E_S \\land H^\\dagger-OCA",
-		"nDandESandQ-OCA": "\\nDiamond \\land E_S \\land Q^\\dagger-OCA",
-		"nDandESandP-OCA": "\\nDiamond \\land E_S \\land P^\\dagger-OCA",
-		"nDandESandU-OCA": "\\nDiamond \\land E_S \\land U-OCA",
-		"nDandESandUandH-OCA": "\\nDiamond \\land E_S \\land (U \\land H^\\dagger)-OCA",
-		"nDandESandQandP-OCA": "\\nDiamond \\land E_S \\land (Q^\\dagger \\land P^\\dagger)-OCA",
-		"nDandESandUandP-OCA": "\\nDiamond \\land E_S \\land (U \\land P^\\dagger)-OCA",
-		"nDandESandQorP-OCA": "\\nDiamond \\land E_S \\land (Q^\\dagger \\lor P^\\dagger)-OCA",
-
-		"nCU-OPA": "\\overline{|U|}-OPA",
-		"nUornH-OPA": "\\overline{U} \\lor \\overline{H^\\dagger}-OPA",
-		"nUornP-OPA": "\\overline{U} \\lor \\overline{P^\\dagger}-OPA",
-		"nH-OPA": "\\overline{H^\\dagger}-OPA",
-		"nQ-OPA": "\\overline{Q^\\dagger}-OPA",
-		"nP-OPA": "\\overline{P^\\dagger}-OPA",
-		"nU-OPA": "\\overline{U}-OPA",
-		"nUandnH-OPA": "\\overline{U} \\land \\overline{H^\\dagger}-OPA",
-		"nQandnP-OPA": "\\overline{Q^\\dagger} \\land \\overline{P^\\dagger}-OPA",
-		"nUandnP-OPA": "\\overline{U} \\land \\overline{P^\\dagger}-OPA",
-		"nQornP-OPA": "\\overline{Q^\\dagger} \\lor \\overline{P^\\dagger}-OPA",
-
-		"nDandES-OPA2": "\\nDiamond \\land E_S-OPA",
-		"nDandESandnCU-OPA": "\\nDiamond \\land E_S \\land \\overline{|U|}-OPA",
-		"nDandESandnUornH-OPA": "\\nDiamond \\land E_S \\land (\\overline{U} \\lor \\overline{H^\\dagger})-OPA",
-		"nDandESandnUornP-OPA": "\\nDiamond \\land E_S \\land (\\overline{U} \\lor \\overline{P^\\dagger})-OPA",
-		"nDandESandnH-OPA": "\\nDiamond \\land E_S \\land \\overline{H^\\dagger}-OPA",
-		"nDandESandnQ-OPA": "\\nDiamond \\land E_S \\land \\overline{Q^\\dagger}-OPA",
-		"nDandESandnP-OPA": "\\nDiamond \\land E_S \\land \\overline{P^\\dagger}-OPA",
-		"nDandESandnU-OPA": "\\nDiamond \\land E_S \\land \\overline{U}-OPA",
-		"nDandESandnUandnH-OPA": "\\nDiamond \\land E_S \\land (\\overline{U} \\land \\overline{H^\\dagger})-OPA",
-		"nDandESandnQandnP-OPA": "\\nDiamond \\land E_S \\land (\\overline{Q^\\dagger} \\land \\overline{P^\\dagger})-OPA",
-		"nDandESandnUandnP-OPA": "\\nDiamond \\land E_S \\land (\\overline{U} \\land \\overline{P^\\dagger})-OPA",
-		"nDandESandnQornP-OPA": "\\nDiamond \\land E_S \\land (\\overline{Q^\\dagger} \\lor \\overline{P^\\dagger})-OPA",
-
-
-		"nCU-OCA": "\\overline{|U|}-OCA",
-		"nUornH-OCA": "\\overline{U} \\lor \\overline{H^\\dagger}-OCA",
-		"nUornP-OCA": "\\overline{U} \\lor \\overline{P^\\dagger}-OCA",
-		"nH-OCA": "\\overline{H^\\dagger}-OCA",
-		"nQ-OCA": "\\overline{Q^\\dagger}-OCA",
-		"nP-OCA": "\\overline{P^\\dagger}-OCA",
-		"nU-OCA": "\\overline{U}-OCA",
-		"nUandnH-OCA": "\\overline{U} \\land \\overline{H^\\dagger}-OCA",
-		"nQandnP-OCA": "\\overline{Q^\\dagger} \\land \\overline{P^\\dagger}-OCA",
-		"nUandnP-OCA": "\\overline{U} \\land \\overline{P^\\dagger}-OCA",
-		"nQornP-OCA": "\\overline{Q^\\dagger} \\lor \\overline{P^\\dagger}-OCA",
-
-		"nDandES-OCA2": "\\nDiamond \\land E_S-OCA",
-		"nDandESandnCU-OCA": "\\nDiamond \\land E_S \\land \\overline{|U|}-OCA",
-		"nDandESandnUornH-OCA": "\\nDiamond \\land E_S \\land (\\overline{U} \\lor \\overline{H^\\dagger})-OCA",
-		"nDandESandnUornP-OCA": "\\nDiamond \\land E_S \\land (\\overline{U} \\lor \\overline{P^\\dagger})-OCA",
-		"nDandESandnH-OCA": "\\nDiamond \\land E_S \\land \\overline{H^\\dagger}-OCA",
-		"nDandESandnQ-OCA": "\\nDiamond \\land E_S \\land \\overline{Q^\\dagger}-OCA",
-		"nDandESandnP-OCA": "\\nDiamond \\land E_S \\land \\overline{P^\\dagger}-OCA",
-		"nDandESandnU-OCA": "\\nDiamond \\land E_S \\land \\overline{U}-OCA",
-		"nDandESandnUandnH-OCA": "\\nDiamond \\land E_S \\land (\\overline{U} \\land \\overline{H^\\dagger})-OCA",
-		"nDandESandnQandnP-OCA": "\\nDiamond \\land E_S \\land (\\overline{Q^\\dagger} \\land \\overline{P^\\dagger})-OCA",
-		"nDandESandnUandnP-OCA": "\\nDiamond \\land E_S \\land (\\overline{U} \\land \\overline{P^\\dagger})-OCA",
-		"nDandESandnQornP-OCA": "\\nDiamond \\land E_S \\land (\\overline{Q^\\dagger} \\lor \\overline{P^\\dagger})-OCA",
-	}
-
-	pages = [ 
-		{
-		"family": "$\\mathbb{S}-OPA$ family",
-		"page": 0,
-		"notions":[
-			"CU-OPA",
-			"UorH-OPA",
-			"UorP-OPA",
-			"H-OPA",
-			"Q-OPA",
-			"P-OPA",
-			"U-OPA",
-			"UandH-OPA",
-			"QandP-OPA",
-			"UandP-OPA",
-			"QorP-OPA"
-		]},
-		{
-		"family": "$\\nDiamond \\land E_S \\land \\mathbb{S}-OPA$ family",
-		"page": 1,
-		"notions":[
-			"nDandES-OPA",
-			"nDandESandCU-OPA",
-			"nDandESandUorH-OPA",
-			"nDandESandUorP-OPA",
-			"nDandESandH-OPA",
-			"nDandESandQ-OPA",
-			"nDandESandP-OPA",
-			"nDandESandU-OPA",
-			"nDandESandUandH-OPA",
-			"nDandESandQandP-OPA",
-			"nDandESandUandP-OPA",
-			"nDandESandQorP-OPA"
-		]},
-		{
-		"family": "$\\mathbb{S}-OCA$ family",
-		"page": 2,
-		"notions":[
-			"CU-OCA",
-			"UorH-OCA",
-			"UorP-OCA",
-			"H-OCA",
-			"Q-OCA",
-			"P-OCA",
-			"U-OCA",
-			"UandH-OCA",
-			"QandP-OCA",
-			"UandP-OCA",
-			"QorP-OCA"
-		]},
-		{
-		"family": "$\\nDiamond \\land E_S \\land \\mathbb{S}-OCA$ family",
-		"page": 3,
-		"notions":[
-			"nDandES-OCA",
-			"nDandESandCU-OCA",
-			"nDandESandUorH-OCA",
-			"nDandESandUorP-OCA",
-			"nDandESandH-OCA",
-			"nDandESandQ-OCA",
-			"nDandESandP-OCA",
-			"nDandESandU-OCA",
-			"nDandESandUandH-OCA",
-			"nDandESandQandP-OCA",
-			"nDandESandUandP-OCA",
-			"nDandESandQorP-OCA"
-		]},
-		{
-		"family": "$\\overline{\\mathbb{S}}-OPA$ family",
-		"page": 4,
-		"notions":[
-			"nCU-OPA",
-			"nUornH-OPA",
-			"nUornP-OPA",
-			"nH-OPA",
-			"nQ-OPA",
-			"nP-OPA",
-			"nU-OPA",
-			"nUandnH-OPA",
-			"nQandnP-OPA",
-			"nUandnP-OPA",
-			"nQornP-OPA"
-		]},
-		{
-		"family": "$\\nDiamond \\land E_S \\land \\overline{\\mathbb{S}}-OPA$ family",
-		"page": 5,
-		"notions":[
-			"nDandES-OPA2",
-			"nDandESandnCU-OPA",
-			"nDandESandnUornH-OPA",
-			"nDandESandnUornP-OPA",
-			"nDandESandnH-OPA",
-			"nDandESandnQ-OPA",
-			"nDandESandnP-OPA",
-			"nDandESandnU-OPA",
-			"nDandESandnUandnH-OPA",
-			"nDandESandnQandnP-OPA",
-			"nDandESandnUandnP-OPA",
-			"nDandESandnQornP-OPA"
-		]},
-		{
-		"family": "$\\overline{\\mathbb{S}}-OCA$ family",
-		"page": 6,
-		"notions":[
-			"nCU-OCA",
-			"nUornH-OCA",
-			"nUornP-OCA",
-			"nH-OCA",
-			"nQ-OCA",
-			"nP-OCA",
-			"nU-OCA",
-			"nUandnH-OCA",
-			"nQandnP-OCA",
-			"nUandnP-OCA",
-			"nQornP-OCA"
-		]},
-		{
-		"family": "$\\nDiamond \\land E_S \\land \\overline{\\mathbb{S}}-OCA$ family",
-		"page": 7,
-		"notions": [
-			"nDandES-OCA2",
-			"nDandESandnCU-OCA",
-			"nDandESandnUornH-OCA",
-			"nDandESandnUornP-OCA",
-			"nDandESandnH-OCA",
-			"nDandESandnQ-OCA",
-			"nDandESandnP-OCA",
-			"nDandESandnU-OCA",
-			"nDandESandnUandnH-OCA",
-			"nDandESandnQandnP-OCA",
-			"nDandESandnUandnP-OCA",
-			"nDandESandnQornP-OCA"
-		]},
-		{
-		"family": "special notions",
-		"page": 8,
-		"notions": [
-			"wUA-OCA",
-			"wUUv0-OCA",
-			"wUUAA-OCA",
-			"LSCACIDrealv0-OCA",
-			"LSRCAACIDrealv0-OCA",
-			"wLsSCIDrealv0CIDrealv0-OCA",
-			"wLsSRCIDrealv0CIDrealv0-OCA",
-			"achievedInGeneral",
-			"unachievable",
-			"N-OPA"
-		]}, 
-		{
-		"family": "opaqueness notions",
-		"page": 21,
-		"notions": [
-			"wUA-OCA",
-			"wUUAA-OCA",
-			"LSCACIDrealv0-OCA",
-			"LSRCAACIDrealv0-OCA",
-			"wLsSCIDrealv0CIDrealv0-OCA",
-			"wLsSRCIDrealv0CIDrealv0-OCA"
-		],
-		"srcNotions": [
-			"wUA-OCA",
-			"wUUAA-OCA",
-			"LSCACIDrealv0-OCA",
-			"LSRCAACIDrealv0-OCA",
-			"wLsSCIDrealv0CIDrealv0-OCA",
-			"wLsSRCIDrealv0CIDrealv0-OCA"
-		]},
-		]
-
-
-
 
 def getImplications(implicationsfile,notions):
 	edges = []
@@ -424,8 +25,14 @@ def getImplications(implicationsfile,notions):
 
 			if l == "":
 				pass
+				
 			elif l[0] == "#":
 				pass
+			
+			elif l[0] == ":":
+				seenNotions.append(l[1:])
+				logger.info(f"Added notion {l[1:]}")
+				
 			elif "<=>" in l:
 				splt = l.split("<=>")
 				if len(splt) != 2:
@@ -433,20 +40,14 @@ def getImplications(implicationsfile,notions):
 				splt[0] = splt[0].strip()
 				splt[1] = splt[1].strip()
 
-				if USE_SEEN_NOTIONS:
-					if splt[0] not in seenNotions:
-						seenNotions.append(splt[0])
-					if splt[1] not in seenNotions:
-						seenNotions.append(splt[1])
-					edges.append(( seenNotions.index(splt[1]), seenNotions.index(splt[0]) ))
-					edges.append(( seenNotions.index(splt[0]), seenNotions.index(splt[1]) ))
-				else:
-					if splt[0] not in notions:
-						raise Exception("Unknown notions %s" % splt[0])
-					if splt[1] not in notions:
-						raise Exception("Unknown notions %s" % splt[1])
-					edges.append(( notions.index(splt[1]), notions.index(splt[0]) ))
-					edges.append(( notions.index(splt[0]), notions.index(splt[1]) ))
+
+				if splt[0] not in seenNotions:
+					seenNotions.append(splt[0])
+				if splt[1] not in seenNotions:
+					seenNotions.append(splt[1])
+				edges.append(( seenNotions.index(splt[1]), seenNotions.index(splt[0]) ))
+				edges.append(( seenNotions.index(splt[0]), seenNotions.index(splt[1]) ))
+
 			elif "=|=>" in l:
 				splt = l.split("=|=>")
 				if len(splt) != 2:
@@ -454,18 +55,12 @@ def getImplications(implicationsfile,notions):
 				splt[0] = splt[0].strip()
 				splt[1] = splt[1].strip()
 				
-				if USE_SEEN_NOTIONS:
-					if splt[0] not in seenNotions:
-						seenNotions.append(splt[0])
-					if splt[1] not in seenNotions:
-						seenNotions.append(splt[1])
-					nonEdges.append(( seenNotions.index(splt[0]), seenNotions.index(splt[1]) ))
-				else:
-					if splt[0] not in notions:
-						raise Exception("Unknown notions %s" % splt[0])
-					if splt[1] not in notions:
-						raise Exception("Unknown notions %s" % splt[1])
-					nonEdges.append(( notions.index(splt[0]), notions.index(splt[1]) ))
+				if splt[0] not in seenNotions:
+					seenNotions.append(splt[0])
+				if splt[1] not in seenNotions:
+					seenNotions.append(splt[1])
+				nonEdges.append(( seenNotions.index(splt[0]), seenNotions.index(splt[1]) ))
+				
 			elif "<=|=" in l:
 				splt = l.split("<=|=")
 				if len(splt) != 2:
@@ -473,18 +68,12 @@ def getImplications(implicationsfile,notions):
 				splt[0] = splt[0].strip()
 				splt[1] = splt[1].strip()
 					
-				if USE_SEEN_NOTIONS:
-					if splt[0] not in seenNotions:
-						seenNotions.append(splt[0])
-					if splt[1] not in seenNotions:
-						seenNotions.append(splt[1])
-					nonEdges.append(( seenNotions.index(splt[1]), seenNotions.index(splt[0]) ))
-				else:
-					if splt[0] not in notions:
-						raise Exception("Unknown notions %s" % splt[0])
-					if splt[1] not in notions:
-						raise Exception("Unknown notions %s" % splt[1])
-					nonEdges.append(( notions.index(splt[1]), notions.index(splt[0]) ))
+				if splt[0] not in seenNotions:
+					seenNotions.append(splt[0])
+				if splt[1] not in seenNotions:
+					seenNotions.append(splt[1])
+				nonEdges.append(( seenNotions.index(splt[1]), seenNotions.index(splt[0]) ))
+				
 			elif "=>" in l:
 				splt = l.split("=>")
 				if len(splt) != 2:
@@ -492,19 +81,12 @@ def getImplications(implicationsfile,notions):
 				splt[0] = splt[0].strip()
 				splt[1] = splt[1].strip()
 
-				if USE_SEEN_NOTIONS:
-					if splt[0] not in seenNotions:
-						seenNotions.append(splt[0])
-					if splt[1] not in seenNotions:
-						seenNotions.append(splt[1])
-					edges.append(( seenNotions.index(splt[0]), seenNotions.index(splt[1]) ))
-				else:
-					if splt[0] not in notions:
-						raise Exception("Unknown notions %s" % splt[0])
-					if splt[1] not in notions:
-						raise Exception("Unknown notions %s" % splt[1])
-
-					edges.append(( notions.index(splt[0]), notions.index(splt[1]) ))
+				if splt[0] not in seenNotions:
+					seenNotions.append(splt[0])
+				if splt[1] not in seenNotions:
+					seenNotions.append(splt[1])
+				edges.append(( seenNotions.index(splt[0]), seenNotions.index(splt[1]) ))
+				
 			elif "<=" in l:
 				splt = l.split("<=")
 				if len(splt) != 2:
@@ -512,27 +94,18 @@ def getImplications(implicationsfile,notions):
 				splt[0] = splt[0].strip()
 				splt[1] = splt[1].strip()
 
-				if USE_SEEN_NOTIONS:
-					if splt[0] not in seenNotions:
-						seenNotions.append(splt[0])
-					if splt[1] not in seenNotions:
-						seenNotions.append(splt[1])
-					edges.append(( seenNotions.index(splt[1]), seenNotions.index(splt[0]) ))
-				else:
-					if splt[0] not in notions:
-						raise Exception("Unknown notions %s" % splt[0])
-					if splt[1] not in notions:
-						raise Exception("Unknown notions %s" % splt[1])
-					edges.append(( notions.index(splt[1]), notions.index(splt[0]) ))
-			
+				if splt[0] not in seenNotions:
+					seenNotions.append(splt[0])
+				if splt[1] not in seenNotions:
+					seenNotions.append(splt[1])
+				edges.append(( seenNotions.index(splt[1]), seenNotions.index(splt[0]) ))
+					
 			else:
-
 				raise Exception("Line %d is neither valid inputline nor comment" % linNum)
 			linNum = linNum + 1
-	if USE_SEEN_NOTIONS:
-		return (edges, nonEdges, seenNotions)
-	else:
-		return (edges, nonEdges, notions)
+
+	return (edges, nonEdges, seenNotions)
+
 
 def checkDisprovedImplications(edges,nonEdges,notions):
 	adjList = [[] for _ in range(len(notions))]
@@ -591,6 +164,7 @@ def printWay(originalMatrix,notions,s,d,l,seen):
 
 	return False
 
+# TODO: This can be done by numpy!
 def transpose(ain):
 	aout = [[ False for _ in range(len(ain)) ] for _ in range(len(ain))]
 	for x in range(len(ain)):
@@ -616,60 +190,15 @@ def antiTransitivity(adjMatrix,adjMatrixNon,notions):
 							adjMatrixNon[src][dest] = True
 	return adjMatrixNon
 
-def latexExport(adjMatrix,adjMatrixNon,outfilename,notions,page):
-	if "srcNotions" in page:
-		srcNotions = page["srcNotions"]
-	else:
-		srcNotions = notions
-
-	outfile = open(outfilename+"Page"+str(page["page"])+".tex","w")
-	outfile.write('\\begin{longtable}{|r|')
-	columnnumber = 1
-	for j in range(len(page["notions"])):
-		outfile.write("c|")
-		columnnumber += 1
-	outfile.write("}\n")
-	outfile.write("\\hline")
-	for dest in page["notions"]:
-		outfile.write("&\\rothead{$%s$}" % (latexEncoding[dest]))
-	outfile.write("\\\\\n")
-	outfile.write("\\hline\n")
-	outfile.write("\\endhead\n")
-	outfile.write("\\hline \\multicolumn{%d}{r}{\\textit{Continued on next page}}\n" % columnnumber)
-	outfile.write("\\endfoot\n")
-	outfile.write("\\endlastfoot\n")
-
-	for src in srcNotions:
-		outfile.write("\\hline\n")
-		outfile.write("$%s$" % (latexEncoding[src]))
-		for dest in page["notions"]:
-			outfile.write("&")
-			destIdx = notions.index(dest)
-			srcIdx = notions.index(src)
-			if srcIdx == destIdx:
-				outfile.write("$=$")
-			elif adjMatrix[srcIdx][destIdx] == True and adjMatrix[destIdx][srcIdx] == True:
-				outfile.write("$\\iff$")
-			elif adjMatrix[srcIdx][destIdx] == True:
-				outfile.write("$\\Rightarrow$")
-					#exit(0)
-			elif adjMatrixNon[srcIdx][destIdx] == True:
-				outfile.write("$\\cancel{\\Rightarrow}$")
-			else:
-				outfile.write("")
-		outfile.write("\\\\\n")
-	outfile.write("\\hline\n")
-	outfile.write('\\caption{Completeness %s}\n' % (page["family"]))
-	outfile.write('\\label{table:completenessPage%d}\n' % (page["page"]))
-	outfile.write('\\end{longtable}\n')
-	outfile.close()
-
+# TODO: This can be done by numpy!
 def copyListe(liste):
 	l = []
 	for i in liste:
 		l.append(i)
 	return l
 
+
+# TODO: This can be done by numpy!
 def copyMatrix(matrix):
 	m = [[ False for _ in range(len(matrix)) ] for _ in range(len(matrix))]
 	for x in range(len(matrix)):
@@ -701,20 +230,21 @@ def antitransitivityLoop(adjMatrix,adjMatrixNon,notions):
 	return adjMatrixNon
 
 if __name__ == '__main__':
+	
+	FORMAT = "%(asctime)-15s %(levelname)s %(message)s"
+	logging.basicConfig(format=FORMAT, level=logging.INFO)
+	logger = logging.getLogger("main")
+	logger.info("Starting run!")
 
-	if USE_TEST:
-		f = "implicationsTest.im"
-	elif USE_OPAQUENESS:
-		f = "implicationsOpaqueness.im"
-	else:
-		f = "implications.im"
+
+	if len(sys.argv) != 2:
+		logger.error("Usage: (python) main.py <inputfile>")
+		exit(-1)
+
+
+	f = sys.argv[1]
 
 	notions = []
-	for page in pages:
-		if "srcNotions" in page:
-			continue
-		notions.extend(page["notions"])
-
 	edges,nonEdges,notions = getImplications(f,notions)
 
 	N = len(notions)
@@ -723,25 +253,9 @@ if __name__ == '__main__':
 	originalMatrix = [[ False for _ in range(len(notions)) ] for _ in range(len(notions))]
 	for (src, dest) in edges:
 		originalMatrix[src][dest] = True
-
-
 	
 
 	adjMatrix = copyMatrix(originalMatrix)
-
-	for dest in range(0,len(notions)):
-		# achieved in general implies every notion
-		adjMatrix[notions.index("achievedInGeneral")][dest] = True
-		# unachievable implies every notion
-		adjMatrix[notions.index("unachievable")][dest] = True;
-		pass
-
-	adjMatrix = transitivityLoop(adjMatrix,notions)
-
-	for dest in range(0,len(notions)):
-		if adjMatrix[dest][notions.index("unachievable")] == False:
-			adjMatrix[notions.index("N-OPA")][dest] = True;
-			pass
 
 	adjMatrix = transitivityLoop(adjMatrix,notions)
 
@@ -751,13 +265,6 @@ if __name__ == '__main__':
 		originalMatrixNon[src][dest] = True
 
 	adjMatrixNon = copyMatrix(originalMatrixNon)
-
-	for dest in range(0,len(notions)):
-		if adjMatrix[dest][notions.index("unachievable")] == False:
-			adjMatrixNon[dest][notions.index("unachievable")] = True;
-			if adjMatrix[dest][notions.index("achievedInGeneral")] == False and dest != notions.index("N-OPA") and adjMatrix[dest][notions.index("N-OPA")] == False:
-				adjMatrixNon[dest][notions.index("N-OPA")] = True;
-			pass
 
 	adjMatrixNon = antitransitivityLoop(adjMatrix,adjMatrixNon,notions)
 
@@ -772,34 +279,31 @@ if __name__ == '__main__':
 				logger.error("INCONSISTENT! %s => %s and %s =|=> %s" % (notions[x],notions[y],notions[x],notions[y]))
 				l = []
 				l = printWay(originalMatrix,notions,x,y,l,[])
-				logger.warn("Path for =>")
+				logger.warning("Path for =>")
 				if l != False:
 					for (s,d) in l[::-1]:
-						logger.warn("%s => %s" % (s,d))
+						logger.warning("%s => %s" % (s,d))
 				else:
-					logger.warn("No path found! for =>")
+					logger.warning("No path found! for =>")
 				l = []
 				l = printWay(adjMatrixNon,notions,x,y,l,[])
-				logger.warn("Path for =|=>")
+				logger.warning("Path for =|=>")
 				if l != False:
 					for (s,d) in l[::-1]:
-						logger.warn("%s =|=> %s" % (s,d))
+						logger.warning("%s =|=> %s" % (s,d))
 				else:
-					logger.warn("No path found! for =|=>")
+					logger.warning("No path found! for =|=>")
 
 				exit(0)
 
 
 				inconsistencies += 1
 			if adjMatrix[x][y] == False and  adjMatrixNon[x][y] == False:
-				logger.warn("Incomplete! %s =?=> %s" % (notions[x],notions[y]))
+				logger.warning("Incomplete! %s =?=> %s" % (notions[x],notions[y]))
 				incompletenesses += 1
 
 
 	numpy.save("adjMatrix", adjMatrix)
-	for page in pages:
-		latexExport(adjMatrix,adjMatrixNon,"../Thesis/Maindocument/outAdjMatrix",notions,page)
-		latexExport(adjMatrix,adjMatrixNon,"outAdjMatrix",notions,page)
 
 	logger.info("Number of notions:          %5d" % len(notions))
 	logger.info("Number of inconsistencies:  %5d" % inconsistencies)
