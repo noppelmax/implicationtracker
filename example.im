@@ -1,0 +1,22 @@
+# This is an example file for implications
+# You can create comments with a leading #
+
+# Good practice: First introduce every notion.
+# Even if we also work with non-introduced notions, this helps to
+# ensure the order of notion. 
+
+:a
+:b
+:c
+
+# Now we introduce a sample set of rules.
+# It is clear that this is not complete, as c =?> a and c =?> b is unclear
+# Use the following commands 
+# implies: =>
+# is implied by <=
+# is equivalent to <=>
+# is not implied by <=|=
+# does not imply =|=>, 
+
+a <=> b
+b => c
